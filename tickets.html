@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo integrador HTML-CSS-BOOTSTRAP-JS</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    <header>
+        <nav class="navsup2 clearfix">
+            
+            <span class="textosupizq">Conf Bs.As.</span>  
+            
+            <span class="espaciolargo"><a href="">La conferencia</a></span>
+            <span><a href="" class="espaciomini">Los oradores</a></span>
+            <span><a href="" class="espaciomini">El lugar y la fecha</a></span>
+            <span><a href="" class="espaciomini">Conviértete en orador</a></span>
+            <span class="espaciocorto"><a href="" class="text-success">Comprar Tickets</a></span>  
+        </nav>
+    </header>
+    <main class="container">
+        <section class="d-inline-flex text-center ml-5 ">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body border border-info">
+                    <h5 class="card-title">Estudiante</h5>
+                    <p class="card-text text-center">Tienen un descuento</p>
+                    <p class="card-text text-center">80 %</p>
+                    <p class="card-text text-center">* Presentar documentación</p>
+                </div>
+            </div>
+              
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body border border-success">
+                    <h5 class="card-title">Trainee</h5>
+                    <p class="card-text text-center">Tienen un descuento</p>
+                    <p class="card-text text-center">50 %</p>
+                    <p class="card-text text-center">* Presentar documentación</p>
+                </div>
+            </div>
+              
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body border border-warning">
+                    <h5 class="card-title">Junior</h5>
+                    <p class="card-text text-center">Tienen un descuento</p>
+                    <p class="card-text text-center">15 %</p>
+                    <p class="card-text text-center">* Presentar documentación</p>
+                </div>
+            </div>
+        </section>
+        <h6 class="text-center">VENTA</h6>
+        <h2 class="text-center">VALOR DE TICKET $200</h2>
+        <section>
+        <form action="">
+            <div class="d-flex">
+                <input type="text" class=" col-md-6 col-sm-12 mt-1" name="nombre" placeholder="Nombre">
+                <input type="text" class=" col-6 mt-1 ml-1 margen" name="apellido" placeholder="Apellido">
+            </div>
+            
+            <input type="text" class="form-control col-12 mt-3" name="email" placeholder="Correo">
+            
+            <div class="d-flex">
+                <div class="col-6 mt-3">
+                    <label for="cantidad" class=" col-12 ">Cantidad</label>
+                    <input id="cantidad" class="form-control col-12 " type="text" name="cantidad">
+                    
+                    
+                </div>
+                <div class="col-6 mt-3 margen">
+                    <label for="categoria" class=" col-12 ">Categoria</label>
+                    <select id="categoria" class="form-control col-12 " onchange="calcularTotal()" name="categoria">
+                        <option value=1>Estudiante</option>
+                        <option value=2>Trainee</option>
+                        <option value=3>Junior</option>
+                    </select>
+                </div>
+                  
+            </div>
+            
+           
+            <p id="total" class="col-12 mt-4 bg-info botonresul">Total a pagar: $</p>
+            <div class="d-flex">
+                <input type="reset" class="btn btn-success col-6 mt-4 botonverde" caption="Borrar">
+                <input type="submit" class="btn btn-success col-6 mt-4 ml-4 botonverde" valor="Resumen">
+            </div>
+            <p></p>
+            <p></p>
+        </form>
+        </section>
+        <script >
+            function calcularTotal(){
+                var canti = document.getElementById('cantidad').value;
+                    cate = document.getElementById('categoria').value;
+                    total = descuento = 0;
+                console.log(canti);
+                console.log(cate);
+                if (cate == 1){
+                    descuento = 0.8;
+                }
+                if (cate == 2){
+                    descuento = 0.5;
+                }    
+                if (cate == 3){
+                    descuento = 0.15;
+                }
+                console.log(descuento);
+                total = parseInt(canti) * (200- (200 * parseFloat(descuento)));
+                console.log(total);
+                document.getElementById('total').innerHTML = ' Total a pagar $'+total;
+                //boton_calcular.addEventListener('click', calculos)
+            }
+        </script>
+        
+        
+        
+        
+    </main>
+    <footer class="">
+        <nav class="navinf">
+            <ul class="nav nav-pills">
+                <li><a href="" class="col-1 offset-md-2 align-middle separacion">Preguntas frecuentes</a></li>
+                <li><a href="" class="col-1 align-middle separacion">Contáctanos</a></li>
+                <li><a href="" class="col-md-1 align-middle separacion">Prensa</a></li>
+                <li><a href="" class="col-md-1 align-middle separacion">Conferencias</a></li>
+                <li><a href="" class="col-md-1 align-middle separacion">Términos y condiciones</a></li>
+                <li><a href="" class="col-md-1 align-middle separacion">Privacidad</a></li>
+                <li><a href="" class="col-md-1 align-middle separacion">Estudiantes</a></li>
+            </ul>
+            <!--
+                <a href="" class="col-1 offset-md-2 align-middle separacion">Preguntas frecuentes</a>
+                <a href="" class="col-md-1 align-middle separacion">Contáctanos</a>
+                <a href="" class="col-md-1 align-middle separacion">Prensa</a>
+                <a href="" class="col-md-1 align-middle separacion">Conferencias</a>
+                <a href="" class="col-md-1 align-middle separacion">Términos y condiciones</a>
+                <a href="" class="col-md-1 align-middle separacion">Privacidad</a>
+                <a href="" class="col-md-1 align-middle separacion">Estudiantes</a>-->
+            
+            
+        </nav>
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
